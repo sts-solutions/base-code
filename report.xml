@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0" errors="0" time="3.310167">
+	<testsuite tests="1" failures="0" time="1.516000" name="github.com/sts-solutions/base-code/cccopy" timestamp="2024-12-12T20:58:25-04:00">
+		<properties>
+			<property name="go.version" value="go1.23.2 darwin/amd64"></property>
+		</properties>
+		<testcase classname="github.com/sts-solutions/base-code/cccopy" name="TestDeepCopy_GivenSrcTestAndDestTestType_WhenSameStructFields_ThenAllFieldDeepCopy" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="0" failures="0" time="0.000000" name="github.com/sts-solutions/base-code/ccerrors/withinnererr" timestamp="2024-12-12T20:58:25-04:00">
+		<properties>
+			<property name="go.version" value="go1.23.2 darwin/amd64"></property>
+		</properties>
+	</testsuite>
+	<testsuite tests="0" failures="0" time="0.036000" name="github.com/sts-solutions/base-code/ccmetrics" timestamp="2024-12-12T20:58:25-04:00">
+		<properties>
+			<property name="go.version" value="go1.23.2 darwin/amd64"></property>
+		</properties>
+	</testsuite>
+</testsuites>

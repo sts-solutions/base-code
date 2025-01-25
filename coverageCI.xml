@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.01898734" branch-rate="0" version="" timestamp="1734051511993" lines-covered="3" lines-valid="158" branches-covered="0" branches-valid="0" complexity="0">
+	<sources>
+		<source>/usr/local/Cellar/go/1.23.2/libexec/src</source>
+	</sources>
+	<packages>
+		<package name="cccopy" line-rate="0.15" branch-rate="0" complexity="0">
+			<classes>
+				<class name="-" filename="cccopy/cccopy.go" line-rate="0.15" branch-rate="0" complexity="0">
+					<methods>
+						<method name="DeepCopy" signature="" line-rate="0.33333334" branch-rate="0" complexity="0">
+							<lines>
+								<line number="8" hits="1"></line>
+								<line number="9" hits="1"></line>
+								<line number="10" hits="0"></line>
+								<line number="11" hits="0"></line>
+								<line number="12" hits="0"></line>
+								<line number="14" hits="0"></line>
+								<line number="15" hits="0"></line>
+								<line number="16" hits="0"></line>
+								<line number="18" hits="1"></line>
+							</lines>
+						</method>
+						<method name="CopySlice" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="21" hits="0"></line>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+							</lines>
+						</method>
+						<method name="CopyMap" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="27" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="8" hits="1"></line>
+						<line number="9" hits="1"></line>
+						<line number="10" hits="0"></line>
+						<line number="11" hits="0"></line>
+						<line number="12" hits="0"></line>
+						<line number="14" hits="0"></line>
+						<line number="15" hits="0"></line>
+						<line number="16" hits="0"></line>
+						<line number="18" hits="1"></line>
+						<line number="21" hits="0"></line>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="ccmetrics" line-rate="0" branch-rate="0" complexity="0">
+			<classes>
+				<class name="host" filename="ccmetrics/host.go" line-rate="0" branch-rate="0" complexity="0">
+					<methods>
+						<method name="String" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="10" hits="0"></line>
+								<line number="11" hits="0"></line>
+								<line number="12" hits="0"></line>
+								<line number="10" hits="0"></line>
+								<line number="11" hits="0"></line>
+								<line number="12" hits="0"></line>
+							</lines>
+						</method>
+						<method name="Shard" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="14" hits="0"></line>
+								<line number="15" hits="0"></line>
+								<line number="16" hits="0"></line>
+								<line number="17" hits="0"></line>
+								<line number="14" hits="0"></line>
+								<line number="15" hits="0"></line>
+								<line number="16" hits="0"></line>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="17" hits="0"></line>
+								<line number="18" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="20" hits="0"></line>
+								<line number="21" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="20" hits="0"></line>
+								<line number="21" hits="0"></line>
+								<line number="23" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="0"></line>
+						<line number="11" hits="0"></line>
+						<line number="12" hits="0"></line>
+						<line number="10" hits="0"></line>
+						<line number="11" hits="0"></line>
+						<line number="12" hits="0"></line>
+						<line number="14" hits="0"></line>
+						<line number="15" hits="0"></line>
+						<line number="16" hits="0"></line>
+						<line number="17" hits="0"></line>
+						<line number="14" hits="0"></line>
+						<line number="15" hits="0"></line>
+						<line number="16" hits="0"></line>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="17" hits="0"></line>
+						<line number="18" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="20" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="20" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="23" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="ccmetrics/metricshandler.go" line-rate="0" branch-rate="0" complexity="0">
+					<methods>
+						<method name="Register" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="27" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="27" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="34" hits="0"></line>
+								<line number="35" hits="0"></line>
+								<line number="36" hits="0"></line>
+								<line number="34" hits="0"></line>
+								<line number="35" hits="0"></line>
+								<line number="36" hits="0"></line>
+								<line number="38" hits="0"></line>
+								<line number="41" hits="0"></line>
+								<line number="42" hits="0"></line>
+								<line number="43" hits="0"></line>
+								<line number="41" hits="0"></line>
+								<line number="42" hits="0"></line>
+								<line number="43" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="27" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="35" hits="0"></line>
+						<line number="36" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="35" hits="0"></line>
+						<line number="36" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="41" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="41" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="43" hits="0"></line>
+					</lines>
+				</class>
+				<class name="-" filename="ccmetrics/natsmsgqueuemetrics.go" line-rate="0" branch-rate="0" complexity="0">
+					<methods>
+						<method name="NewNatsMsgQueueMetrics" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="19" hits="0"></line>
+								<line number="20" hits="0"></line>
+								<line number="21" hits="0"></line>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+								<line number="27" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="34" hits="0"></line>
+								<line number="35" hits="0"></line>
+								<line number="36" hits="0"></line>
+								<line number="37" hits="0"></line>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+								<line number="40" hits="0"></line>
+								<line number="41" hits="0"></line>
+								<line number="42" hits="0"></line>
+								<line number="43" hits="0"></line>
+								<line number="44" hits="0"></line>
+								<line number="45" hits="0"></line>
+								<line number="46" hits="0"></line>
+								<line number="47" hits="0"></line>
+								<line number="48" hits="0"></line>
+								<line number="49" hits="0"></line>
+								<line number="50" hits="0"></line>
+								<line number="19" hits="0"></line>
+								<line number="20" hits="0"></line>
+								<line number="21" hits="0"></line>
+								<line number="22" hits="0"></line>
+								<line number="23" hits="0"></line>
+								<line number="24" hits="0"></line>
+								<line number="25" hits="0"></line>
+								<line number="26" hits="0"></line>
+								<line number="27" hits="0"></line>
+								<line number="28" hits="0"></line>
+								<line number="29" hits="0"></line>
+								<line number="30" hits="0"></line>
+								<line number="31" hits="0"></line>
+								<line number="32" hits="0"></line>
+								<line number="33" hits="0"></line>
+								<line number="34" hits="0"></line>
+								<line number="35" hits="0"></line>
+								<line number="36" hits="0"></line>
+								<line number="37" hits="0"></line>
+								<line number="38" hits="0"></line>
+								<line number="39" hits="0"></line>
+								<line number="40" hits="0"></line>
+								<line number="41" hits="0"></line>
+								<line number="42" hits="0"></line>
+								<line number="43" hits="0"></line>
+								<line number="44" hits="0"></line>
+								<line number="45" hits="0"></line>
+								<line number="46" hits="0"></line>
+								<line number="47" hits="0"></line>
+								<line number="48" hits="0"></line>
+								<line number="49" hits="0"></line>
+								<line number="50" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="0"></line>
+						<line number="20" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="35" hits="0"></line>
+						<line number="36" hits="0"></line>
+						<line number="37" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="40" hits="0"></line>
+						<line number="41" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="44" hits="0"></line>
+						<line number="45" hits="0"></line>
+						<line number="46" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="48" hits="0"></line>
+						<line number="49" hits="0"></line>
+						<line number="50" hits="0"></line>
+						<line number="19" hits="0"></line>
+						<line number="20" hits="0"></line>
+						<line number="21" hits="0"></line>
+						<line number="22" hits="0"></line>
+						<line number="23" hits="0"></line>
+						<line number="24" hits="0"></line>
+						<line number="25" hits="0"></line>
+						<line number="26" hits="0"></line>
+						<line number="27" hits="0"></line>
+						<line number="28" hits="0"></line>
+						<line number="29" hits="0"></line>
+						<line number="30" hits="0"></line>
+						<line number="31" hits="0"></line>
+						<line number="32" hits="0"></line>
+						<line number="33" hits="0"></line>
+						<line number="34" hits="0"></line>
+						<line number="35" hits="0"></line>
+						<line number="36" hits="0"></line>
+						<line number="37" hits="0"></line>
+						<line number="38" hits="0"></line>
+						<line number="39" hits="0"></line>
+						<line number="40" hits="0"></line>
+						<line number="41" hits="0"></line>
+						<line number="42" hits="0"></line>
+						<line number="43" hits="0"></line>
+						<line number="44" hits="0"></line>
+						<line number="45" hits="0"></line>
+						<line number="46" hits="0"></line>
+						<line number="47" hits="0"></line>
+						<line number="48" hits="0"></line>
+						<line number="49" hits="0"></line>
+						<line number="50" hits="0"></line>
+					</lines>
+				</class>
+				<class name="natsMsgQueueMetrics" filename="ccmetrics/natsmsgqueuemetrics.go" line-rate="0" branch-rate="0" complexity="0">
+					<methods>
+						<method name="Host" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="52" hits="0"></line>
+								<line number="53" hits="0"></line>
+								<line number="54" hits="0"></line>
+								<line number="52" hits="0"></line>
+								<line number="53" hits="0"></line>
+								<line number="54" hits="0"></line>
+							</lines>
+						</method>
+						<method name="MessageLag" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="56" hits="0"></line>
+								<line number="57" hits="0"></line>
+								<line number="58" hits="0"></line>
+								<line number="59" hits="0"></line>
+								<line number="56" hits="0"></line>
+								<line number="57" hits="0"></line>
+								<line number="58" hits="0"></line>
+								<line number="59" hits="0"></line>
+							</lines>
+						</method>
+						<method name="ConcurrentProcessorInc" signature="" line-rate="0" branch-rate="0" complexity="0">
+							<lines>
+								<line number="61" hits="0"></line>
+								<line number="62" hits="0"></line>
+								<line number="63" hits="0"></line>
+								<line number="61" hits="0"></line>
+								<line number="62" hits="0"></line>
+								<line number="63" hits="0"></line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="52" hits="0"></line>
+						<line number="53" hits="0"></line>
+						<line number="54" hits="0"></line>
+						<line number="52" hits="0"></line>
+						<line number="53" hits="0"></line>
+						<line number="54" hits="0"></line>
+						<line number="56" hits="0"></line>
+						<line number="57" hits="0"></line>
+						<line number="58" hits="0"></line>
+						<line number="59" hits="0"></line>
+						<line number="56" hits="0"></line>
+						<line number="57" hits="0"></line>
+						<line number="58" hits="0"></line>
+						<line number="59" hits="0"></line>
+						<line number="61" hits="0"></line>
+						<line number="62" hits="0"></line>
+						<line number="63" hits="0"></line>
+						<line number="61" hits="0"></line>
+						<line number="62" hits="0"></line>
+						<line number="63" hits="0"></line>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
