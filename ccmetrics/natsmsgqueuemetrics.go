@@ -10,7 +10,7 @@ import (
 )
 
 type natsMsgQueueMetrics struct {
-	host                host
+	host                Host
 	shard               string
 	natsMessageLag      *prometheus.HistogramVec
 	concurrentProcessor *prometheus.GaugeVec
@@ -18,7 +18,7 @@ type natsMsgQueueMetrics struct {
 
 func NewNatsMsgQueueMetrics(nameSpace string) MegQueueMetrics {
 	hostName, _ := os.Hostname()
-	host := host(hostName)
+	host := Host(hostName)
 	ns := nameSpace
 	subsystem := "nats"
 	histogramBuckets := []float64{.005, 0.1, 0.2, 0.25, 0.5, .1, .25, .5,

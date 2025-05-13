@@ -5,13 +5,13 @@ import (
 	"strings"
 )
 
-type host string
+type Host string
 
-func (h host) String() string {
+func (h Host) String() string {
 	return string(h)
 }
 
-func (h host) Shard() string {
+func (h Host) Shard() string {
 	host := h.String()
 	parts := strings.Split(host, ".")
 	if len(parts) == 2 {
