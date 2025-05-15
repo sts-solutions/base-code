@@ -5,7 +5,6 @@ go 1.23.2
 require (
 	emperror.dev/errors v0.8.1
 	github.com/google/uuid v1.6.0
-	github.com/labstack/echo/v4 v4.13.3
 	github.com/nats-io/nats.go v1.42.0
 	github.com/neko-neko/echo-logrus/v2 v2.0.2
 	github.com/prometheus/client_golang v1.20.5
@@ -40,10 +39,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.35.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/crypto v0.37.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
-	golang.org/x/time v0.8.0 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
