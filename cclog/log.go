@@ -40,6 +40,10 @@ type ContextKey string
 type Level uint8
 
 const (
+	ATTRIBUTES_KEY = ContextKey("_sts")
+)
+
+const (
 	Debug Level = iota
 	Info
 	Warn
@@ -246,30 +250,19 @@ func (l *Logger) defaultFields(ctx context.Context) []zapcore.Field {
 }
 
 func (l *Logger) mergeAttributesToFieldList(ctx context.Context, fields []zapcore.Field, paramAttrs ...zapcore.Field) []zapcore.Field {
-	var attrs *Attributes
+	var attr *Attributes
 
-	// Override attributes from the extractor
-	if l.attrExtractor != nil {
-		extractAttrs := l.attrExtractor(ctx)
-		for _, extAttr := range extractAttrs {
-			replaced := false
-			for i := range attrs.Fields {
-				// If we have the key with the same name, we replace it
-				if attrs.Fields[i].Key == extAttr.Key {
-					attrs.Fields[i] = extAttr
-					replaced = true
-					break
-				}
-			}
-			// Otherwise append it
-			if !replaced {
-				attrs.Fields = append(attrs.Fields, extAttr)
-			}
+	if attr = extractAttributesFromContext(ctx, ATTRIBUTES_KEY); attr == nil {
+		attr = &Attributes{
+			Fields: make([]zapcore.Field, 0),
 		}
 	}
 
-	attrs.Fields = append(attrs.Fields, paramAttrs...)
-	return append(fields, zap.Object(AttributesName, attrs))
+	for i := range paramAttrs {
+		attr.Fields = append(attr.Fields, paramAttrs[i])
+	}
+
+	return append(fields, zap.Object(AttributesName, attr))
 }
 
 func defaultEncoderConfig() zapcore.EncoderConfig {
