@@ -70,7 +70,7 @@ func (rb *requestBuilder) WithHTTPMethod(method string) *requestBuilder {
 }
 
 // WithHTTPClient sets the HTTP client to be used for the request
-func (rb *requestBuilder) WithHTTPClient(client *http.Client) *requestBuilder {
+func (rb *requestBuilder) WithHTTPClient(client Client) *requestBuilder {
 	rb.request.httpClient = client
 	return rb
 }
@@ -89,8 +89,8 @@ func (rb *requestBuilder) WithExpectedStatusCode(code int) *requestBuilder {
 }
 
 // WithStatusCode gets the status code for the response
-func (rb *requestBuilder) WithStatusCode(code int) *requestBuilder {
-	rb.request.gotStatusCode = &code
+func (rb *requestBuilder) WithStatusCode(code *int) *requestBuilder {
+	rb.request.gotStatusCode = code
 	return rb
 }
 
