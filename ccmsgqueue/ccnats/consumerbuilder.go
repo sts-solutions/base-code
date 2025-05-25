@@ -82,9 +82,6 @@ func (cb *ConsumerBuilder) Build() (*consumer, error) {
 func (cb *ConsumerBuilder) validate() ccvalidation.Result {
 	result := ccvalidation.Result{}
 
-	if cb.consumer.namespace == "" {
-		result.AddErrorMessage("consumer namespace is missing")
-	}
 	if cb.consumer.stream == "" {
 		result.AddErrorMessage("consumer stream is missing")
 	}
@@ -93,9 +90,6 @@ func (cb *ConsumerBuilder) validate() ccvalidation.Result {
 	}
 	if cb.consumer.name == "" {
 		result.AddErrorMessage("consumer name is missing")
-	}
-	if cb.consumer.conn == nil {
-		result.AddErrorMessage("consumer connection is missing")
 	}
 	if cb.consumer.msgHandler == nil {
 		result.AddErrorMessage("consumer message handler is missing")
