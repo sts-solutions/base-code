@@ -4,15 +4,15 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/sts-solutions/base-code/cclog"
+	"github.com/sts-solutions/base-code/cclogger"
 )
 
 type gooseLogger struct {
-	logger cclog.Logger
+	logger cclogger.Logger
 	ctx    context.Context
 }
 
-func newGooseLogger(logger cclog.Logger) gooseLogger {
+func newGooseLogger(logger cclogger.Logger) gooseLogger {
 	return gooseLogger{
 		logger: logger,
 		ctx:    context.Background(),
