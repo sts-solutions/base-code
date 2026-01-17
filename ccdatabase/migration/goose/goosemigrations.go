@@ -37,7 +37,7 @@ func (g *gooseMigrations) Run(ctx context.Context) error {
 			break
 		}
 
-		g.logger.Printf("cannot acquire migration lock, another migration in progress: %s", err)
+		g.logger.Printf("cannot acquire migcration lock, another migration in progress: %s", err)
 		time.Sleep(time.Second)
 	}
 

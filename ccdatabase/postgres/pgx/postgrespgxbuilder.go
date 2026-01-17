@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"time"
 
-	"emperror.dev/errors"
-	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/sts-solutions/base-code/ccdatabase"
+	"github.com/sts-solutions/base-code/ccdatabase/migration"
 	"github.com/sts-solutions/base-code/ccdatabase/postgres"
 	"github.com/sts-solutions/base-code/ccerrors"
 	"github.com/sts-solutions/base-code/ccvalidation"
+
+	"emperror.dev/errors"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 type postgresPgxDBBuilder struct {
@@ -96,6 +98,11 @@ func (b *postgresPgxDBBuilder) WithConnMaxLifetimeJitter(connMaxLifetimeJitter t
 
 func (b *postgresPgxDBBuilder) WithConnMaxIdleTime(connMaxIdleTime time.Duration) *postgresPgxDBBuilder {
 	b.connMaxIdleTime = connMaxIdleTime
+	return b
+}
+
+func (b *postgresPgxDBBuilder) WithMigrations(migration migration.Migration) *postgresPgxDBBuilder {
+	b.postgresPgxDB.migrations = migration
 	return b
 }
 
