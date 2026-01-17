@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/sts-solutions/base-code/ccdatabase/migration"
-	"github.com/sts-solutions/base-code/cclog"
+	"github.com/sts-solutions/base-code/cclogger"
 
 	"github.com/pressly/goose"
 )
@@ -19,7 +19,7 @@ type gooseMigrations struct {
 }
 
 func NewGooseMigrations(sourceFolder string,
-	logger cclog.Logger) migration.Migration {
+	logger cclogger.Logger) migration.Migration {
 	return &gooseMigrations{
 		sourceFolder: sourceFolder,
 		logger:       newGooseLogger(logger),
@@ -37,14 +37,14 @@ func (g *gooseMigrations) Run(ctx context.Context) error {
 			break
 		}
 
-		g.logger.Print("cannot acquire migration lock, another migration in progress: %s", err)
+		g.logger.Printf("cannot acquire migration lock, another migration in progress: %s", err)
 		time.Sleep(time.Second)
 	}
 
 	defer func() {
 		_, err := g.db.ExecContext(ctx, "DROP TABLE IF EXISTS goose_migrations_in_progress")
 		if err != nil {
-			g.logger.Print("failed to drop migration table: %s", err)
+			g.logger.Printf("failed to drop migration table: %s", err)
 		}
 	}()
 
