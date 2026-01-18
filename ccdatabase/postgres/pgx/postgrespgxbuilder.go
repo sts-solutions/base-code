@@ -81,6 +81,11 @@ func (b *postgresPgxDBBuilder) WithTimeout(timeout time.Duration) *postgresPgxDB
 	return b
 }
 
+func (b *postgresPgxDBBuilder) WithMaxConns(maxConns int) *postgresPgxDBBuilder {
+	b.maxConns = maxConns
+	return b
+}
+
 func (b *postgresPgxDBBuilder) WithMinIdleConns(minIdleConns int) *postgresPgxDBBuilder {
 	b.minIdleConns = minIdleConns
 	return b
@@ -95,14 +100,8 @@ func (b *postgresPgxDBBuilder) WithConnMaxLifetimeJitter(connMaxLifetimeJitter t
 	b.connMaxLifeTimeJitter = connMaxLifetimeJitter
 	return b
 }
-
 func (b *postgresPgxDBBuilder) WithConnMaxIdleTime(connMaxIdleTime time.Duration) *postgresPgxDBBuilder {
 	b.connMaxIdleTime = connMaxIdleTime
-	return b
-}
-
-func (b *postgresPgxDBBuilder) WithMigrations(migration migration.Migration) *postgresPgxDBBuilder {
-	b.postgresPgxDB.migrations = migration
 	return b
 }
 
@@ -111,7 +110,17 @@ func (b *postgresPgxDBBuilder) WithHealthCheckInterval(healthCheckInterval time.
 	return b
 }
 
+func (b *postgresPgxDBBuilder) WithMigrations(migration migration.Migration) *postgresPgxDBBuilder {
+	b.postgresPgxDB.migrations = migration
+	return b
+}
+
 func (b *postgresPgxDBBuilder) WithConnectionString(connectionString string) *postgresPgxDBBuilder {
+	b.postgresPgxDB.connection = postgres.NewDbConnectionFromCnnString(connectionString)
+	return b
+}
+
+func (b *postgresPgxDBBuilder) WithConnectionStringUrl(connectionString string) *postgresPgxDBBuilder {
 	b.postgresPgxDB.connection = postgres.NewDBConnectionFromCnnStringUrl(connectionString)
 	return b
 }

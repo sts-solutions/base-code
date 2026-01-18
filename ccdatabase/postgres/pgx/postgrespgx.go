@@ -7,6 +7,7 @@ import (
 
 	"emperror.dev/errors"
 	"github.com/jackc/pgx/v5/pgxpool"
+	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/sts-solutions/base-code/ccdatabase"
 	"github.com/sts-solutions/base-code/ccdatabase/migration"
 	"github.com/sts-solutions/base-code/ccdatabase/postgres"
@@ -33,6 +34,7 @@ func (d *postgresPgxDB) Open() error {
 	if err != nil {
 		return errors.Wrap(err, "creating pgx pool")
 	}
+
 	d.pool = pool
 
 	// Create the sql.DB wrapper required for database migrations
