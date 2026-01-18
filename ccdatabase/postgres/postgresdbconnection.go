@@ -18,8 +18,8 @@ type DBConnection struct {
 	cnnString string
 }
 
-func NewDbConnectionFromCnnString(cnnString string) *DBConnection {
-	c := &DBConnection{
+func NewDbConnectionFromCnnString(cnnString string) DBConnection {
+	c := DBConnection{
 		cnnString: cnnString,
 	}
 	c.parseConnectionString()

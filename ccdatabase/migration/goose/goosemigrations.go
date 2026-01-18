@@ -50,7 +50,7 @@ func (g *gooseMigrations) Run(ctx context.Context) error {
 
 	goose.SetLogger(g.logger)
 
-	return goose.Run("Up", g.db, g.sourceFolder)
+	return goose.Run("up", g.db, g.sourceFolder)
 }
 
 func (g *gooseMigrations) SetDB(db any) error {
