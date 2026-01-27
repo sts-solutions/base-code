@@ -1,84 +1,113 @@
 package ccvalidation
 
-// // Validator defines the interface for validation
-// type Validator[T any] interface {
-// 	Validate(src T) Result
-// }
+import "context"
 
-// // validator implements the Validator interface
-// type validator[T any] struct {
-// 	breakOnFailure bool
-// 	validators
-// }
+type Validator[T any] interface {
+	Validate(src T) Result
+	ValidateCtx(ctx context.Context, src T) Result
+}
 
-// // Validate executes all validation steps
-// func (v *validator[T]) Validate(src T) Result {
-// 	result := Result{}
-// 	if len(v.validators) == 0 {
-// 		result.AddErrorMessage("no validator step defined")
-// 		return result
-// 	}
+type validator[T any] struct {
+	breakOnFailure bool
+	steps          []validationStep[T]
+}
 
-// 	for _, step := range v.validators {
-// 		err := step.validator(src)
+func (v validator[T]) Validate(src T) Result {
+	return v.ValidateCtx(context.Background(), src)
+}
 
-// 		if err != nil {
-// 			result.AddError(err)
-// 			if step.breakOnFailure || v.breakOnFailure {
-// 				return result
-// 			}
-// 		}
-// 	}
-// 	return result
-// }
+func (v validator[T]) ValidateCtx(ctx context.Context, src T) Result {
+	result := Result{}
 
-// // NewValidator creates a new validator
-// func NewValidator[T any]() *validator[T] {
-// 	return &validator[T]{
-// 		breakOnFailure: false,
-// 		validators:     make([]validationStep[T], 0),
-// 	}
-// }
+	if !v.hasValidationItems() {
+		result.AddFailureMessage("No validation steps defined")
+		return result
+	}
 
-// // WithBreakOnFailure configures the validator to break on first failure
-// func (v *validator[T]) WithBreakOnFailure() *validator[T] {
-// 	v.breakOnFailure = true
-// 	return v
-// }
+	for _, step := range v.steps {
+		err := step.action(ctx, src)
+		if err != nil {
+			if res, ok := err.(Result); ok {
+				if res.IsSuccess() {
+					continue
+				}
+				for _, v := range res.GetErrors() {
+					result.AddFailure(v)
+				}
+			} else {
+				result.AddFailure(err)
+			}
+			if step.breakOnFailure || v.breakOnFailure {
+				return result
+			}
+		}
+	}
 
-// // AddValidator adds a new validation step
-// func (v *validator[T]) AddValidator(validator Validator[T]) *validator[T] {
-// 	step := validationStep[T]{
-// 		validator:      validator,
-// 		breakOnFailure: false,
-// 	}
-// 	v.validators = append(v.validators, step)
-// 	return v
-// }
+	return result
+}
 
-// // conditionalValidator validates based on a condition
-// type conditionalValidator[Env any, T any] struct {
-// 	validator Validator[T]
-// 	condition func(Env) bool
-// }
+func NewValidator[T any]() *validator[T] {
+	return &validator[T]{
+		breakOnFailure: false,
+		steps:          make([]validationStep[T], 0),
+	}
+}
 
-// // NewConditionalValidator creates a new conditional validator
-// func NewConditionalValidator[Env any, T any](validator Validator[T]) *conditionalValidator[Env, T] {
-// 	return &conditionalValidator[Env, T]{
-// 		validator: validator,
-// 	}
-// }
+func New[T any]() *validator[T] {
+	return NewValidator[T]()
+}
 
-// // WithCondition sets the condition function
-// func (c *conditionalValidator[Env, T]) WithCondition(condition func(Env) bool) *conditionalValidator[Env, T] {
-// 	c.condition = condition
-// 	return c
-// }
+func (v *validator[T]) BreakOnFailure() *validator[T] {
+	v.breakOnFailure = true
+	return v
+}
 
-// Validate implements the Validator interface for conditional validation
-// func (c *conditionalValidator[Env, T]) Validate(env Env, src T) Result {
-// 	if c.condition != nil && !c.condition(env) {
-// 		return NewResult() // Skip validation if condition is not met
-// 	}
-// 	return c.validator.Validate(src)
-// }
+func (v *validator[T]) AddStep(steps ...func(req T) error) {
+	if steps == nil {
+		steps = []func(req T) error{func(T) error { return nil }}
+	}
+
+	for _, step := range steps {
+		ctxFunc := func(ctx context.Context, req T) error {
+			return step(req)
+		}
+		v.AddStepCtx(ctxFunc)
+	}
+}
+
+func (v *validator[T]) AddStepCtx(steps ...func(ctx context.Context, req T) error) {
+	if steps == nil {
+		steps = []func(ctx context.Context, req T) error{
+			func(ctx context.Context, req T) error {
+				return nil
+			},
+		}
+	}
+
+	for _, step := range steps {
+		validationStep := validationStep[T]{
+			breakOnFailure: false,
+			action:         step,
+		}
+		v.steps = append(v.steps, validationStep)
+	}
+}
+
+func (v *validator[T]) AddValidator(vldtr Validator[T]) {
+	if v.breakOnFailure {
+		val, _ := vldtr.(*validator[T])
+		val.breakOnFailure = true
+		val.steps = append(val.steps, v.steps...)
+		vldtr = val
+	}
+
+	ctxFunc := func(ctx context.Context, req T) error {
+		return vldtr.ValidateCtx(ctx, req)
+	}
+	v.AddStepCtx(ctxFunc)
+
+}
+
+func (v *validator[T]) hasValidationItems() bool {
+	return len(v.steps) > 0
+}
